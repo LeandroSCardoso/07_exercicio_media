@@ -5,30 +5,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>PRINCIPAL - PROJETO RESPONSIVO</title>
 </head>
+
 <body>
     <aside class="menu">
-        <h1>Menu</h1>  
-    </aside> 
+        <nav>
+            <a href="index.html" class="botao active">Principal</a>
+            <a href="contato.html" class="botao">Contato</a>
+        </nav>
+    </aside>
 
-    <header class="cabecalho"> 
-        <h1>Treinando</h1> 
+    <header class="cabecalho">
+        <h1>Treinando</h1>
     </header>
 
     <main class="principal">
-        <div class="linha">
-            <p>somar</p>
-        </div>
-        <div class="linha">
-            <p>pokemon</p>
-        </div>
-    </main> 
 
-    <footer class="rodape">    
+        <!-- Avisos do sistema -->
+        <div id="aviso" class="aviso"></div>
+
+        <!-- Quadro SOMA -->
+        <div class="linha">
+            <div class="quadro">
+                <div>
+                    <div><input type="text" id="val1" name="" placeholder="Digite um numero"></div>
+                    <div><input type="text" id="val2" name="" placeholder="Digite um numero"></div>
+                    <div class="botao_acao" onclick="somar_ex()" id="btn_somar_ex01">Somar</div>
+                </div>
+
+
+                <div>
+                    <div class="foto_result">
+                        <div>Resultado:</div>
+                        <div class="res_calculo" id="total_ex">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Quadro POKEMON -->
+        <div class="linha">
+
+            <div class="quadro">
+                <div>
+                    <div><input type="number" id="id_pokemon" name="" placeholder="ID Pokemon"></div>
+                    <div class="botao_acao" onclick="pega_pokemon()">Buscar</div>
+                </div>
+
+
+                <div>
+                    <div class="foto_result">
+                        <div id="nome_pokemon">Nome:</div>
+                        <div class="res_calculo" id="foto_pokemon"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="rodape">
         <div class="gd_roda">Construido por:</div>
         <div class="gd_roda">Leandro Cardoso</div>
-    </footer>  
+    </footer>
 </body>
+
 </html>
