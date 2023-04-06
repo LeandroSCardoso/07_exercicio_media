@@ -109,11 +109,16 @@ async function EnviaFormulario(){
         const email_resp = document.querySelector("#email_resp")
         const texto_resp = document.querySelector("#texto_resp")
         const retorno = document.querySelector("#retorno")
-        const aviso = document.querySelector("#aviso")
         
         //mostando divs de avisos
-        /* aviso.style.display = 'inline-block'  */
         retorno.style.display = 'inline-block'
+
+        //pegando a largura da div contato, para o retorno da api ficar com o mesmo tamanho
+        //desta forma, a div retorno pode ficar fora da linha e não vai ficar feio ocupando toda a largura da tela
+        //ela vai ficar com a largura da div contato como ja disse e vai ficar alinhada ao centro utilizando o margin: 0 auto
+        var pega_div_contato = document.querySelector('.contato').offsetWidth;
+        retorno.style.width = pega_div_contato + 'px';
+
 
         //passando os valores enviados para os campos
         nome_resp.innerHTML = JSON.stringify(`Nome: ${retornoApi.apiRecebeu.nome} ${retornoApi.apiRecebeu.sobre_nome}`)

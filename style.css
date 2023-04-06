@@ -211,7 +211,7 @@ input::placeholder, textarea::placeholder {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   text-decoration: none;
 }
@@ -242,10 +242,12 @@ input::placeholder, textarea::placeholder {
 	font-size: 16px;
   border: 2px solid var(--cor-active);
   border-radius: 10px;
-	width: 100%; 
-  margin-top: 20px;
   padding: 0px 20px 0px 20px;
   box-sizing: border-box; 
+  float: none; /* remove qualquer flutuação existente */
+  margin: 0 auto; /* define as margens esquerda e direita como automática para centralizar horizontalmente */
+  margin-top: 20px;
+
 }
 
 .foto {
