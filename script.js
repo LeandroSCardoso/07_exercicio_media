@@ -1,3 +1,10 @@
+  let cor_amarelo = "#ffd900";
+  let cor_verde = "#338b18";
+  let cor_vermelha = "#f50a1e";
+  let cor_preta = "#1a1919";
+  let cor_laranja = "#e25d34";
+  let cor_branca = "#fff"
+  
 //FUNÇÃO PARA EFETUAR A SOMA DE 2 NUMEROS
 function somar_ex() {
     // PEGANDO OS VALORES DOS INPUTS
@@ -14,7 +21,7 @@ function somar_ex() {
 
     //VALIDANDO A SAIDA
     if (isNaN(total)) {
-       exibe_aviso("aviso","Impossível calcular, informe apenas nûmeros!")        
+       exibe_aviso("aviso","Impossível calcular, informe apenas nûmeros!",cor_vermelha,cor_branca)        
     }
     else {
       const resultado = document.getElementById("total_ex")
@@ -36,7 +43,7 @@ async function pega_pokemon() {
 
     //CASO A RESPOSTA SEJA 404 EXBIBE MENSAGEM DE POKEMON NÃO ENCONTRADO
     if (resposta.status === 404) {
-        exibe_aviso("aviso","Pokemon não encontrado!") 
+        exibe_aviso("aviso","Pokemon não encontrado!",cor_vermelha,cor_branca) 
     } else {
 
       //EXIBE NOME E FOTO DO POKEMON
@@ -53,12 +60,64 @@ async function pega_pokemon() {
 }
 
 
-function exibe_aviso(elemento,mensagem) {
+function exibe_aviso(elemento,mensagem,cor_fundo,cor_texto) {
     const resultado = document.getElementById(elemento)
-    resultado.style.display = "block"
+    resultado.style.backgroundColor = cor_fundo
+    resultado.style.color = cor_texto
+    resultado.style.display = "inline-block"
     resultado.innerText = mensagem
     setTimeout(function() {
         // oculta a div após 5 segundos
         resultado.style.display = "none";
       }, 5000);
+}
+
+
+async function EnviaFormulario(){
+
+    // PEGANDO VALORES DOS IMPUTS
+    const input_nome = document.querySelector("#nome").value
+    const input_sobre_nome = document.querySelector("#sobre_nome").value
+    const input_email = document.querySelector("#email").value
+    const input_texto = document.querySelector("#texto").value
+   
+    // CHAMANDO A API
+    const url = "https://target-api-simples.cyclic.app/generica"
+    const fetchOptions = {
+      method: "POST",
+      body: JSON.stringify({
+        nome: input_nome,
+        sobre_nome: input_sobre_nome,        
+        email: input_email,
+        texto: input_texto
+      }),
+      // body: `{"title": ${inputTitleValue}, "description": ${inputDescriptionValue}}`,
+      headers: {"Content-type": "application/json"}
+    }
+    const response = await fetch(url, fetchOptions)
+
+    //CASO A RESPOSTA SEJA 404 EXBIBE MENSAGEM ERRO, CASO SUCESSO, MENSAGEM DE SUCESSO
+    if (response.status === 404) {
+        exibe_aviso("aviso","Erro ao enviar para a api!",cor_vermelha,cor_branca)
+    } else {
+        exibe_aviso("aviso","Informações enviadas com sucesso!",cor_verde,cor_branca)
+
+        const retornoApi = await response.json()
+
+        // RETORNO DA API
+        const nome_resp = document.querySelector("#nome_resp")
+        const email_resp = document.querySelector("#email_resp")
+        const texto_resp = document.querySelector("#texto_resp")
+        const retorno = document.querySelector("#retorno")
+        const aviso = document.querySelector("#aviso")
+        
+        //mostando divs de avisos
+        /* aviso.style.display = 'inline-block'  */
+        retorno.style.display = 'inline-block'
+
+        //passando os valores enviados para os campos
+        nome_resp.innerHTML = JSON.stringify(`Nome: ${retornoApi.apiRecebeu.nome} ${retornoApi.apiRecebeu.sobre_nome}`)
+        email_resp.innerHTML = JSON.stringify(`E-mail: ${retornoApi.apiRecebeu.email}`)
+        texto_resp.innerHTML = JSON.stringify(`Mensagem: ${retornoApi.apiRecebeu.texto}`)
+    }
 }

@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>    
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0f1e4b64a0.js" crossorigin="anonymous"></script>
     <title>CONTATO - PROJETO RESPONSIVO</title>
 </head>
 <body>
@@ -25,45 +27,46 @@
         <!-- Avisos do sistema -->
         <div id="aviso" class="aviso"></div>
 
-        <!-- Quadro SOMA -->
-        <div class="linha">
-            <div class="quadro">
-                <div>
-                    <div><input type="text" id="val1" name="" placeholder="Digite um numero"></div>
-                    <div><input type="text" id="val2" name="" placeholder="Digite um numero"></div>
-                    <div class="botao_acao" onclick="somar_ex()" id="btn_somar_ex01">Somar</div>
-                </div>
-
-
-                <div>
-                    <div class="foto_result">
-                        <div>Resultado:</div>
-                        <div class="res_calculo" id="total_ex">0</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Quadro POKEMON -->
+        
         <div class="linha">
 
-            <div class="quadro">
-                <div>
-                    <div><input type="number" id="id_pokemon" name="" placeholder="ID Pokemon"></div>
-                    <div class="botao_acao" onclick="pega_pokemon()">Buscar</div>
-                </div>
+            <!-- SOCIAL -->
+            <div class="social">
 
-
-                <div>
-                    <div class="foto_result">
-                        <div id="nome_pokemon">Nome:</div>
-                        <div class="res_calculo" id="foto_pokemon"></div>
-                    </div>
-                </div>
+                <img class="foto" src="img/fotom.jpg" alt="Família">
+                <a class="botao_acao" href="https://br.linkedin.com/" ><i class="fa-brands fa-linkedin-in fa-1x"></i> - Linkedin</a>
+                <a class="botao_acao" href="https://github.com/LeandroSCardoso"><i class="fa-brands fa-linkedin-in fa-1x"></i> - GitHub</a>
+                
             </div>
 
+            <!-- CONTATO -->
+            <div class="contato">
+  
+                <div>
+				<input class="" type="text" name="nome" id="nome" placeholder="Nome">
+				<input class="" type="email" name="sobre_nome" id="sobre_nome" placeholder="Sobrenome">
+                </div>
+
+				<input class="" type="email" name="email" id="email" placeholder="E-mail">
+                <textarea class="" name="texto" id="texto" placeholder="Mensagem"></textarea>
+
+                <div class="botao_acao" onclick="EnviaFormulario()" id="enviar">ENVIAR</div>
+
+				<div id="retorno" class="retorno">
+					<h1>Retorno da API</h1>
+					<p>Veja o que você enviou:</p>
+					<P></P>
+					<P id="nome_resp">Nome:</P>
+					<p id="email_resp">E-mail:</p>
+					<p id="texto_resp">Mensagem:</p>
+				</div>
+
+            </div>            
+
+
+
         </div>
+
     </main>
 
     <footer class="rodape">
