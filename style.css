@@ -38,7 +38,7 @@ body {
   }
   }
 
-@media (min-width: 641px) and (max-width: 9999px) {
+@media (min-width: 641px) and (max-width: 99999px) {
 .body_home {
   height: 100vh;
   box-sizing: border-box;  
@@ -59,8 +59,29 @@ body {
 }
 
 
+@media (min-width: 200px) and (max-width: 640px) {
+  .body_contato {
+    width: 100vw;
+    box-sizing: border-box;  
+    padding: 5px;
+  
+    display: grid;
+    gap: 10px;
+  
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr auto 1fr;
+  
+    grid-template-areas:
+      "gd_menu" 
+      "gd_cabecalho"
+      "gd_principal"
+      "gd_rodape"
+    ;
+  }
+  }
 
 
+@media (min-width: 641px) and (max-width: 99999px) {
 .body_contato {
   height: 100vh;
   box-sizing: border-box;  
@@ -78,6 +99,7 @@ body {
     "gd_rodape gd_rodape"
   ;
 }
+}
 
 @media (min-width: 200px) and (max-width: 640px) {
   .cabecalho {
@@ -92,7 +114,7 @@ body {
   }
   }
 
-@media (min-width: 641px) and (max-width: 9999px) {
+@media (min-width: 641px) and (max-width: 99999px) {
 .cabecalho {
   background-color: var(--cor-verde);
   grid-area: gd_cabecalho;
@@ -123,7 +145,7 @@ body {
   }
   }
 
-@media (min-width: 641px) and (max-width: 9999px) {
+@media (min-width: 641px) and (max-width: 99999px) {
 .principal {
   background-color: var(--cor-verde);
   font-size: 20px;
@@ -159,7 +181,8 @@ body {
     margin-top: 20px;
   }
 
-@media (min-width: 641px) and (max-width: 9999px) {
+
+@media (min-width: 641px) and (max-width: 99999px) {
 .quadro {
   padding: 10px;
   margin: 30px 0px 10px 0px;
@@ -190,7 +213,7 @@ body {
   }
   }
 
-@media (min-width: 641px) and (max-width: 9999px) {
+@media (min-width: 641px) and (max-width: 99999px) {
 .foto_result {
   background-color: var(--cor-cinza-medio);
   color: var(--cor-active);
@@ -206,9 +229,6 @@ body {
 }
 
 
-
-
-
 .menu {
   background-color: var(--cor-verde);
   grid-area: gd_menu;
@@ -219,12 +239,21 @@ body {
   align-items: center;
 }
 
-
+@media (min-width: 200px) and (max-width: 640px) {
 .linha {
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: center;
 }
+}
+
+@media (min-width: 641px) and (max-width: 99999px) {
+  .linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  }  
 
 .rodape {
   font-size: 18px;
@@ -310,39 +339,82 @@ input::placeholder, textarea::placeholder {
   text-align: center;
 }
 
+
+@media (min-width: 200px) and (max-width: 640px) {
 .social {
   padding: 10px;
   border: none;
-  margin: 30px 0px 10px 0px;
-
-  display: grid;
-
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-
-  align-items: flex-start;
-  gap: 10px;
-  text-decoration: none;
+  margin: 30px 30px 10px 30px;  
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  gap: 7px;
 }
+}
+
+@media (min-width: 641px) and (max-width: 99999px) {
+  .social {
+    padding: 10px;
+    border: none;
+    margin: 30px 0px 10px 0px;
+  
+    display: grid;
+  
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  
+    align-items: center;  
+    gap: 10px;
+    text-decoration: none;
+  }
+  }
+
 
 .sodial a {
   text-decoration: none;  
 }
 
+@media (min-width: 200px) and (max-width: 640px) {
 .contato {
   padding: 10px;
   border: none;
-  margin: 30px 10px 0px 20px;
+  margin: 10px;
   background-color: var(--cor-cinza-claro);
 
   display: grid;
-
+  
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
-  align-items: center;  
-
 }
+}
+
+@media (min-width: 200px) and (max-width: 640px) {
+.nome_sobrenome {
+  display: grid;
+  
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;  
+}
+}
+
+
+@media (min-width: 641px) and (max-width: 99999px) {
+  .contato {
+    padding: 10px;
+    border: none;
+    margin: 30px 10px 0px 20px;
+    background-color: var(--cor-cinza-claro);
+  
+    display: grid;
+  
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  
+    align-items: center;  
+  
+  }
+  }
 
 .retorno {
   display: none;  
@@ -359,10 +431,10 @@ input::placeholder, textarea::placeholder {
 
 }
 
+
 .foto {
   background-color: var(--cor-cinza-claro);
   padding: 5px;
   width: 220px;
   border-radius: 50%;
-  margin: 5
 }
