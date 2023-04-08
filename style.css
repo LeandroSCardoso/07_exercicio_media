@@ -209,7 +209,10 @@ body {
     border-color: var(--cor-cinza-escuro);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    height: 140px;
+    width: 240px;
+    height: 1fr;
+    min-height: 140px;  
+    word-wrap: break-word;
   }
   }
 
@@ -223,8 +226,11 @@ body {
   border-color: var(--cor-cinza-escuro);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
-  height: 140px;
+  height: 1fr;
+  min-height: 140px;
   width: 100%;
+  max-width: 300px;
+  word-wrap: break-word;  
 }
 }
 
